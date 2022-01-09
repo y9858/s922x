@@ -10,8 +10,14 @@
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
+# Modify default theme
+sed -i 's/luci-theme-bootstrap/luci-theme-neobird/g' ./feeds/luci/collections/luci/Makefile
+
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
+
+# Add luci-theme-neobird
+git clone https://github.com/thinktip/luci-theme-neobird package/luci-theme-neobird
 
 # Add luci-app-ssr-plus
 git clone https://github.com/fw876/helloworld package/openwrt-ssrplus
@@ -27,3 +33,7 @@ git clone https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
 
 # Add autocore support for armvirt
 sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/autocore/Makefile
+
+# Set etc/openwrt_release
+sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R$(date +%Y.%m.%d)'|g" package/lean/default-settings/files/zzz-default-settings
+echo "DISTRIB_SOURCECODE='lede'" >>package/base-files/files/etc/openwrt_release
