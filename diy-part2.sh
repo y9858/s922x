@@ -14,7 +14,10 @@
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
 # Modify default theme
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-neobird/g' ./feeds/luci/collections/luci/Makefile
+
+# Add lluci-theme-neobird
+git clone https://github.com/thinktip/luci-theme-neobird package/luci-theme-neobird
 
 # Add luci-app-ssr-plus
 git clone https://github.com/fw876/helloworld package/openwrt-ssrplus
