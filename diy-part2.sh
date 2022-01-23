@@ -16,7 +16,7 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 # Modify default theme
 sed -i 's/luci-theme-bootstrap/luci-theme-neobird/g' ./feeds/luci/collections/luci/Makefile
 
-# Add lluci-theme-neobird
+# Add luci-theme-neobird
 git clone https://github.com/thinktip/luci-theme-neobird package/luci-theme-neobird
 
 # Add luci-app-ssr-plus
