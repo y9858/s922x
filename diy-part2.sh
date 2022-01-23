@@ -19,13 +19,6 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci
 # Add luci-app-ssr-plus
 git clone https://github.com/fw876/helloworld package/openwrt-ssrplus
 
-# Add luci-app-vssr
-git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
-git clone https://github.com/jerrykuku/luci-app-vssr package/luci-app-vssr
-
-# Add luci-app-passwall
-git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
-
 # Add luci-app-dockerman
 git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerman
 
