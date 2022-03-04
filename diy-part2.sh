@@ -13,12 +13,6 @@
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
-# Modify default theme
-sed -i 's/luci-theme-bootstrap/luci-theme-rosy/g' feeds/luci/collections/luci/Makefile
-
-# Add luci-theme-rosy
-git clone https://github.com/rosywrt/luci-theme-rosy package/luci-theme-rosy
-
 # Add luci-app-ssr-plus
 git clone https://github.com/fw876/helloworld package/openwrt-ssrplus
 
