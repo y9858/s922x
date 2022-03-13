@@ -13,8 +13,8 @@
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
-# Add luci-app-ssr-plus
-git clone https://github.com/fw876/helloworld package/openwrt-ssrplus
+# Add v2rayA
+git clone https://github.com/v2rayA/v2raya-openwrt package/v2raya-openwrt
 
 # Add luci-app-dockerman
 git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerman
