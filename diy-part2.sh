@@ -20,11 +20,13 @@ git clone https://github.com/v2rayA/v2raya-openwrt package/v2raya-openwrt
 # Add luci-app-dockerman
 cd feeds/luci/applications
 rm -rf luci-app-dockerman
+cd ../../..
 git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerman
 
 # Add luci-app-unblockneteasemusic
 cd feeds/luci/applications
 rm -rf luci-app-unblockmusic
+cd ../../..
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 
 # Add luci-app-adblock-plus
