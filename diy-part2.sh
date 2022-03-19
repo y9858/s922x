@@ -18,6 +18,7 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 
 # Add luci-app-bypass
 git clone https://github.com/kiddin9/openwrt-bypass package/luci-app-bypass
+git clone https://github.com/xiaorouji/openwrt-passwall package/luci-app-bypass
 
 # Add luci-app-dockerman
 cd feeds/luci/applications
