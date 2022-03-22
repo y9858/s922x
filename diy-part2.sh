@@ -37,8 +37,8 @@ rm -rf luci-app-unblockmusic
 cd ../../..
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 
-# Add luci-app-adblock-plus
-git clone https://github.com/small-5/luci-app-adblock-plus package/luci-app-adblock-plus
+# Add luci-app-dnsfilter
+git clone https://github.com/kiddin9/luci-app-dnsfilter package/luci-app-dnsfilter
 
 # Add luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
