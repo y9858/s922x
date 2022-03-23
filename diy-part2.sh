@@ -11,19 +11,13 @@
 #
 
 # Modify default theme
-cd feeds/luci/themes
-rm -rf luci-theme-argon
-cd ../../..
-git clone -b revert-271-18.06_bing https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
-git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
-sed -i 's/luci-theme-bootstrap/luci-theme-argon-18.06/g' ./feeds/luci/collections/luci/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci/Makefile
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
-# Add luci-app-bypass
-git clone https://github.com/kiddin9/openwrt-bypass package/luci-app-bypass
-git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
+# Add luci-app-openclash
+git clone https://github.com/vernesong/OpenClash package/luci-app-openclash
 
 # Add luci-app-dockerman
 cd feeds/luci/applications
@@ -36,9 +30,6 @@ cd feeds/luci/applications
 rm -rf luci-app-unblockmusic
 cd ../../..
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
-
-# Add luci-app-dnsfilter
-git clone https://github.com/kiddin9/luci-app-dnsfilter package/luci-app-dnsfilter
 
 # Add luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
