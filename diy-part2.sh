@@ -19,9 +19,6 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 # Add luci-app-openclash
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
 
-# Add luci-app-adguardhome
-git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
-
 # Add luci-app-dockerman
 cd feeds/luci/applications
 rm -rf luci-app-dockerman
