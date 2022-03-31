@@ -12,8 +12,8 @@
 
 # Modify default theme
 rm -rf feeds/luci/themes/*
-svn co https://github.com/y9858/themes/trunk feeds/luci/themes
-#sed -i 's/luci-theme-bootstrap/luci-theme-atmaterial/g' ./feeds/luci/collections/luci/Makefile
+svn co https://github.com/y9858/themes/trunk package/themes
+sed -i 's/luci-theme-bootstrap/luci-theme-atmaterial/g' ./feeds/luci/collections/luci/Makefile
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
