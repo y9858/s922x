@@ -11,7 +11,7 @@
 #
 
 # Modify default theme
-rm -rf feeds/luci/themes
+rm -rf feeds/luci/themes/*
 svn co https://github.com/y9858/themes/trunk feeds/luci/themes
 sed -i 's/luci-theme-bootstrap/luci-theme-atmaterial/g' ./feeds/luci/collections/luci/Makefile
 
