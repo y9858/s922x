@@ -11,15 +11,16 @@
 #
 
 # Modify default theme
-rm -rf feeds/luci/themes/*
-git clone https://github.com/y9858/themes package/themes
 sed -i 's/luci-theme-bootstrap/luci-theme-atmaterial/g' ./feeds/luci/collections/luci/Makefile
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
-# Add luci-app-openclash
-svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
+# Add luci-app-ssr-plus
+git clone https://github.com/fw876/helloworld package/luci-app-ssr-plus
+
+# Add luci-app-ikoolproxy
+git clone https://github.com/yaof2/luci-app-ikoolproxy package/luci-app-ikoolproxy
 
 # Add luci-app-dockerman
 cd feeds/luci/applications
