@@ -23,23 +23,10 @@ git clone https://github.com/fw876/helloworld package/luci-app-ssr-plus
 git clone https://github.com/yaof2/luci-app-ikoolproxy package/luci-app-ikoolproxy
 
 # Add luci-app-dockerman
-cd feeds/luci/applications
-rm -rf luci-app-dockerman
-cd ../../..
 git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerman
 
 # Add luci-app-unblockneteasemusic
-cd feeds/luci/applications
-rm -rf luci-app-unblockmusic
-cd ../../..
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 
 # Add luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
-
-# Add autocore support for armvirt
-sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/autocore/Makefile
-
-# Set etc/openwrt_release
-sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R$(date +%Y.%m.%d)'|g" package/lean/default-settings/files/zzz-default-settings
-echo "DISTRIB_SOURCECODE='lede'" >>package/base-files/files/etc/openwrt_release
