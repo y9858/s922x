@@ -12,6 +12,13 @@
 
 # Modify default theme
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat package/luci-theme-opentomcat
+git clone https://github.com/Leo-Jo-My/luci-theme-argon-dark-mod package/luci-theme-argon-dark-mod
+git clone https://github.com/Leo-Jo-My/luci-theme-Butterfly-dark package/luci-theme-Butterfly-dark
+git clone https://github.com/Leo-Jo-My/luci-theme-opentomato package/luci-theme-opentomato
+git clone https://github.com/Leo-Jo-My/luci-theme-Butterfly package/luci-theme-Butterfly
+git clone https://github.com/Leo-Jo-My/luci-theme-argon-mod package/luci-theme-argon-mod
+git clone https://github.com/Leo-Jo-My/luci-theme-argon-light-mod package/luci-theme-argon-light-mod
+git clone https://github.com/Leo-Jo-My/luci-theme-leo package/luci-theme-leo
 sed -i 's/luci-theme-bootstrap/luci-theme-opentomcat/g' ./feeds/luci/collections/luci/Makefile
 
 # Modify default IP
@@ -19,6 +26,7 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 
 # Add v2raya
 svn co https://github.com/fw876/helloworld/trunk/v2raya package/v2raya
+svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
 
 # Add luci-app-dockerman
 cd feeds/luci/applications
