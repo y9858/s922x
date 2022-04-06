@@ -16,9 +16,9 @@ sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/l
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
-# Add v2raya
-svn co https://github.com/fw876/helloworld/trunk/v2raya package/v2raya
-svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
+# Add luci-app-ssr-plus
+git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
+git clone https://github.com/y9858/luci-app-ssr-plus package/luci-app-ssr-plus
 
 # Add luci-app-mosdns
 git clone https://github.com/QiuSimons/openwrt-mos package/luci-app-mosdns
