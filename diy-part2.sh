@@ -18,7 +18,8 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 
 # Add luci-app-ssr-plus
 git clone https://github.com/fw876/helloworld package/luci-app-ssr-plus
-sed -i '415,417d' package/luci-app-ssr-plus/luci-app-ssr-plus/po/zh-cn/ssr-plus.po
+sed -i '6d' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
+sed -i '5a m = Map("shadowsocksr", translate("ShadowSocksR Plus+ Settings"))' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
 
 # Add luci-app-mosdns
 git clone https://github.com/QiuSimons/openwrt-mos package/luci-app-mosdns
