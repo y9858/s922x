@@ -11,7 +11,7 @@
 #
 
 # Modify default theme
-rm -rf feeds/luci/themes/luci-theme-material
+rm -rf feeds/luci/themes/*
 git clone https://github.com/LuttyYang/luci-theme-material feeds/luci/themes/luci-theme-material
 sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci/Makefile
 
