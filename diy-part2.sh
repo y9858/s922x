@@ -12,15 +12,18 @@
 
 # Modify default theme
 rm -rf feeds/luci/themes/*
-git clone https://github.com/LuttyYang/luci-theme-material feeds/luci/themes/luci-theme-material
-sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci/Makefile
+git clone https://github.com/kenzok78/luci-theme-argonne feeds/luci/themes/luci-theme-argonne
+sed -i 's/luci-theme-bootstrap/luci-theme-argonne/g' ./feeds/luci/collections/luci/Makefile
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
 # Add luci-app-passwall2
-git clone https://github.com/xiaorouji/openwrt-passwall2 package/luci-app-passwall2
-git clone https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
+git clone https://github.com/fw876/helloworld package/luci-app-ssr-plus
+sed -i 's/Xray/V2ray/g' package/luci-app-ssr-plus/luci-app-ssr-plus/Makefile
+sed -i 's/xray/v2ray/g' package/luci-app-ssr-plus/luci-app-ssr-plus/Makefile
+sed -i '6d' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
+sed -i '5a m = Map("shadowsocksr", translate("ShadowSocksR Plus+ Settings"))' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
 
 # Add luci-app-mosdns
 git clone https://github.com/QiuSimons/openwrt-mos package/luci-app-mosdns
