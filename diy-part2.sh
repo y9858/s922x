@@ -12,8 +12,8 @@
 
 # Modify default theme
 rm -rf feeds/luci/themes/*
-git clone https://github.com/aswifi/luci-theme-atmaterial_new feeds/luci/themes/luci-theme-atmaterial_new
-sed -i 's/luci-theme-bootstrap/luci-theme-atmaterial_new/g' ./feeds/luci/collections/luci/Makefile
+git clone https://github.com/Lienol/luci-theme-darkmatter feeds/luci/themes/luci-theme-darkmatter
+sed -i 's/luci-theme-bootstrap/luci-theme-darkmatter/g' ./feeds/luci/collections/luci/Makefile
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
