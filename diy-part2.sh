@@ -11,7 +11,6 @@
 #
 
 # Modify default theme
-rm -rf feeds/luci/themes/*
 git clone https://github.com/Lienol/luci-theme-darkmatter feeds/luci/themes/luci-theme-darkmatter
 sed -i 's/luci-theme-bootstrap/luci-theme-darkmatter/g' ./feeds/luci/collections/luci/Makefile
 
