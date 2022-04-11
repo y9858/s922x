@@ -11,8 +11,9 @@
 #
 
 # Modify default theme
-git clone https://github.com/rosywrt/luci-theme-rosy feeds/luci/themes/luci-theme-rosy
-sed -i 's/luci-theme-bootstrap/luci-theme-rosy/g' ./feeds/luci/collections/luci/Makefile
+rm -rf feeds/luci/themes/*
+git clone https://github.com/LuttyYang/luci-theme-material feeds/luci/themes/luci-theme-material
+sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci/Makefile
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
@@ -24,8 +25,11 @@ sed -i 's/xray/v2ray/g' package/luci-app-ssr-plus/luci-app-ssr-plus/Makefile
 sed -i '6d' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
 sed -i '5a m = Map("shadowsocksr", translate("ShadowSocksR Plus+ Settings"))' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
 
-# Add luci-app-mosdns
-git clone https://github.com/QiuSimons/openwrt-mos package/luci-app-mosdns
+# Add luci-app-adguardhome
+git clone https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome package/luci-app-adguardhome
+
+# Add luci-app-smartdns
+git clone https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns package/luci-app-smartdns
 
 # Add luci-app-dockerman
 cd feeds/luci/applications
