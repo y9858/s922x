@@ -11,8 +11,6 @@
 #
 
 # Modify default theme
-git clone https://github.com/solidus1983/luci-theme-opentomato package/luci-theme-opentomato
-git clone https://github.com/solidus1983/-luci-theme-darky package/luci-theme-darky
 sed -i 's/luci-theme-bootstrap/luci-theme-opentomato/g' ./feeds/luci/collections/luci/Makefile
 
 # Modify default IP
