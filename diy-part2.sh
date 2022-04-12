@@ -11,9 +11,7 @@
 #
 
 # Modify default theme
-rm -rf feeds/luci/themes/*
-git clone https://github.com/jeolives/luci-theme-atmaterial feeds/luci/themes/luci-theme-atmaterial
-sed -i 's/luci-theme-bootstrap/luci-theme-atmaterial/g' ./feeds/luci/collections/luci/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci/Makefile
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
