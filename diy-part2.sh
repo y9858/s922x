@@ -11,9 +11,8 @@
 #
 
 # Modify default theme
-rm -rf feeds/luci/themes/luci-theme-material
-git clone https://github.com/LuttyYang/luci-theme-material package/luci-theme-material
-sed -i 's/9. Themes/4. Themes/g' package/luci-theme-material/Makefile
+rm -rf feeds/luci/themes
+svn co https://github.com/Lienol/openwrt-luci/branches/18.06/themes feeds/luci/themes
 sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci/Makefile
 
 # Modify default IP
