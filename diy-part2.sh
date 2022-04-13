@@ -30,7 +30,9 @@ sed -i '5a m = Map("shadowsocksr", translate("ShadowSocksR Plus+ Settings"))' pa
 svn co https://github.com/Lienol/openwrt-package/branches/other/luci-app-adguardhome package/luci-app-adguardhome
 
 # Add luci-app-smartdns
-svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06-k5.4/applications/luci-app-smartdns package/luci-app-smartdns
+svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-smartdns package/luci-app-smartdns
+sed -i '13d' package/luci-app-smartdns/Makefile
+sei -i '12a include $(TOPDIR)/feeds/luci/luci.mk' package/luci-app-smartdns/Makefile
 
 # Add luci-app-dockerman
 cd feeds/luci/applications
