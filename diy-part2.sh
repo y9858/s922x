@@ -27,7 +27,7 @@ sed -i '6d' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadows
 sed -i '5a m = Map("shadowsocksr", translate("ShadowSocksR Plus+ Settings"))' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
 
 # Add luci-app-adguardhome
-svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome package/luci-app-adguardhome
+git clone -b beta https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
 
 # Add luci-app-dockerman
 cd feeds/luci/applications
