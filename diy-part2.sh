@@ -11,28 +11,20 @@
 #
 
 # Modify default theme
-rm -rf feeds/luci/themes/luci-theme-material
-git clone https://github.com/LuttyYang/luci-theme-material package/luci-theme-material
-sed -i 's/9. Themes/4. Themes/g' package/luci-theme-material/Makefile
-sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci/Makefile
+#rm -rf feeds/luci/themes/luci-theme-material
+#git clone https://github.com/LuttyYang/luci-theme-material package/luci-theme-material
+#sed -i 's/9. Themes/4. Themes/g' package/luci-theme-material/Makefile
+#sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci/Makefile
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
 # Add luci-app-ssr-plus
-#git clone https://github.com/fw876/helloworld package/luci-app-ssr-plus
-#sed -i 's/Xray/V2ray/g' package/luci-app-ssr-plus/luci-app-ssr-plus/Makefile
-#sed -i 's/xray/v2ray/g' package/luci-app-ssr-plus/luci-app-ssr-plus/Makefile
-#sed -i '6d' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
-#sed -i '5a m = Map("shadowsocksr", translate("ShadowSocksR Plus+ Settings"))' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
-
-# Add luci-app-v2raya
-git clone https://github.com/zxlhhyccc/luci-app-v2raya package/luci-app-v2raya
-svn co https://github.com/fw876/helloworld/trunk/v2raya package/v2raya
-svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
-
-# Add luci-app-adguardhome
-git clone -b beta https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
+git clone https://github.com/fw876/helloworld package/luci-app-ssr-plus
+sed -i 's/Xray/V2ray/g' package/luci-app-ssr-plus/luci-app-ssr-plus/Makefile
+sed -i 's/xray/v2ray/g' package/luci-app-ssr-plus/luci-app-ssr-plus/Makefile
+sed -i '6d' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
+sed -i '5a m = Map("shadowsocksr", translate("ShadowSocksR Plus+ Settings"))' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
 
 # Add luci-app-dockerman
 cd feeds/luci/applications
