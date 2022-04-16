@@ -37,6 +37,7 @@ cd feeds/luci/applications
 rm -rf luci-app-unblockmusic
 cd ../../..
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
+sed -i 's/解除网易云音乐播放限制/解除网易云音乐限制/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
 
 # Add luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
