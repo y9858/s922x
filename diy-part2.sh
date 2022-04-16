@@ -28,7 +28,8 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 
 # Add luci-app-v2raya
 git clone https://github.com/zxlhhyccc/luci-app-v2raya package/luci-app-v2raya
-git clone https://github.com/v2rayA/v2raya-openwrt package/v2raya-openwrt
+svn co https://github.com/fw876/helloworld/trunk/v2raya package/v2raya
+svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
 
 # Add luci-app-adguardhome
 git clone -b beta https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
