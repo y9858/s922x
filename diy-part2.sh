@@ -20,11 +20,15 @@ sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/l
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
 # Add luci-app-ssr-plus
-git clone https://github.com/fw876/helloworld package/luci-app-ssr-plus
-sed -i 's/Xray/V2ray/g' package/luci-app-ssr-plus/luci-app-ssr-plus/Makefile
-sed -i 's/xray/v2ray/g' package/luci-app-ssr-plus/luci-app-ssr-plus/Makefile
-sed -i '6d' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
-sed -i '5a m = Map("shadowsocksr", translate("ShadowSocksR Plus+ Settings"))' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
+#git clone https://github.com/fw876/helloworld package/luci-app-ssr-plus
+#sed -i 's/Xray/V2ray/g' package/luci-app-ssr-plus/luci-app-ssr-plus/Makefile
+#sed -i 's/xray/v2ray/g' package/luci-app-ssr-plus/luci-app-ssr-plus/Makefile
+#sed -i '6d' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
+#sed -i '5a m = Map("shadowsocksr", translate("ShadowSocksR Plus+ Settings"))' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
+
+# Add luci-app-v2raya
+git clone https://github.com/zxlhhyccc/luci-app-v2raya package/luci-app-v2raya
+git clone https://github.com/v2rayA/v2raya-openwrt package/v2raya-openwrt
 
 # Add luci-app-adguardhome
 git clone -b beta https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
