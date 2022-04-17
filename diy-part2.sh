@@ -11,10 +11,8 @@
 #
 
 # Modify default theme
-rm -rf feeds/luci/themes/luci-theme-material
-git clone https://github.com/LuttyYang/luci-theme-material package/luci-theme-material
-sed -i 's/9. Themes/4. Themes/g' package/luci-theme-material/Makefile
-sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci/Makefile
+git clone https://github.com/thinktip/luci-theme-neobird package/luci-theme-neobird
+sed -i 's/luci-theme-bootstrap/luci-theme-neobird/g' ./feeds/luci/collections/luci/Makefile
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
