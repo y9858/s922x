@@ -32,6 +32,9 @@ git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic pa
 # Add luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
 
+# Modify luci-app-cifsd
+sed -i 's/+ksmbd-server/+ksmbd-server +ksmbd-utils +KSMBD_UTILS_SHAREADD/g' feeds/luci/applications/luci-app-cifsd/Makefile
+
 # Add autocore support for armvirt
 sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/autocore/Makefile
 
