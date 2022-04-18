@@ -11,8 +11,10 @@
 #
 
 # Modify default theme
-git clone https://github.com/thinktip/luci-theme-neobird package/luci-theme-neobird
-sed -i 's/luci-theme-bootstrap/luci-theme-neobird/g' ./feeds/luci/collections/luci/Makefile
+rm -rf feeds/luci/themes/luci-theme-material
+git clone https://github.com/LuttyYang/luci-theme-material package/luci-theme-material
+sed -i 's/9. Themes/4. Themes/g' package/luci-theme-material/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci/Makefile
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
@@ -24,7 +26,12 @@ sed -i 's/xray/v2ray/g' package/luci-app-ssr-plus/luci-app-ssr-plus/Makefile
 sed -i '6d' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
 sed -i '5a m = Map("shadowsocksr", translate("ShadowSocksR Plus+ Settings"))' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
 
+# Add luci-app-dockerman
+rm -rf feeds/luci/applications/luci-app-dockerman
+git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerman
+
 # Add luci-app-unblockneteasemusic
+rm -rf feeds/luci/applications/luci-app-unblockmusic
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 
 # Add luci-app-amlogic
