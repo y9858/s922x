@@ -27,8 +27,8 @@ sed -i '6d' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadows
 sed -i '5a m = Map("shadowsocksr", translate("ShadowSocksR Plus+ Settings"))' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
 
 # Add luci-app-mosdns
-git clone https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
-git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
+git clone https://github.com/QiuSimons/openwrt-mos package/luci-app-mosdns
+sed -i 's/filter_aaaa='0'/filter_aaaa='1'/g' package/luci-app-mosdns/luci-app-mosdns/root/etc/init.d/mosdns
 
 # Add luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-dockerman
