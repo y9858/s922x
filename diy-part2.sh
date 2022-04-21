@@ -26,6 +26,9 @@ sed -i 's/xray/v2ray/g' package/luci-app-ssr-plus/luci-app-ssr-plus/Makefile
 sed -i '6d' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
 sed -i '5a m = Map("shadowsocksr", translate("ShadowSocksR Plus+ Settings"))' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
 
+# Add luci-app-mosdns
+git clone https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
+
 # Add luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-dockerman
 git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerman
@@ -36,9 +39,6 @@ git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic pa
 
 # Add luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
-
-# Modify luci-app-cifsd
-sed -i 's/+ksmbd-server/+ksmbd-server +ksmbd-utils/g' feeds/luci/applications/luci-app-cifsd/Makefile
 
 # Add autocore support for armvirt
 sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/autocore/Makefile
