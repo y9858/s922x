@@ -28,6 +28,7 @@ sed -i '5a m = Map("shadowsocksr", translate("ShadowSocksR Plus+ Settings"))' pa
 
 # Add luci-app-mosdns
 git clone https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
+git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
 # Add luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-dockerman
