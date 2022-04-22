@@ -28,6 +28,8 @@ sed -i '5a m = Map("shadowsocksr", translate("ShadowSocksR Plus+ Settings"))' pa
 
 # Add luci-app-mosdns
 git clone https://github.com/QiuSimons/openwrt-mos package/luci-app-mosdns
+sed -i '27s/^/#/g' package/luci-app-mosdns/luci-app-mosdns/root/etc/init.d/mosdns
+sed -i '39s/^/#/g' package/luci-app-mosdns/luci-app-mosdns/root/etc/init.d/mosdns
 
 # Add luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-dockerman
