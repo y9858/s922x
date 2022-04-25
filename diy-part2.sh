@@ -26,6 +26,7 @@ sed -i '5a m = Map("shadowsocksr", translate("ShadowSocksR Plus+ Settings"))' pa
 
 # Add luci-app-vssr
 git clone https://github.com/jerrykuku/luci-app-vssr package/luci-app-vssr
+git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 
 # Add luci-app-adguardhome
 git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
