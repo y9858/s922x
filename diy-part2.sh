@@ -19,14 +19,9 @@ sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/l
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
-# Add luci-app-ssr-plus
-git clone https://github.com/fw876/helloworld package/luci-app-ssr-plus
-sed -i '6d' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
-sed -i '5a m = Map("shadowsocksr", translate("ShadowSocksR Plus+ Settings"))' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
-
-# Add luci-app-vssr
-git clone https://github.com/jerrykuku/luci-app-vssr package/luci-app-vssr
-git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
+# Add luci-app-v2raya
+git clone https://github.com/zxlhhyccc/luci-app-v2raya package/luci-app-v2raya
+git clone https://github.com/v2rayA/v2raya-openwrt package/v2raya-openwrt
 
 # Add luci-app-adguardhome
 git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
