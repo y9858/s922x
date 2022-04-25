@@ -24,6 +24,9 @@ git clone https://github.com/fw876/helloworld package/luci-app-ssr-plus
 sed -i '6d' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
 sed -i '5a m = Map("shadowsocksr", translate("ShadowSocksR Plus+ Settings"))' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
 
+# Add luci-app-vssr
+git clone https://github.com/jerrykuku/luci-app-vssr package/luci-app-vssr
+
 # Add luci-app-adguardhome
 git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
 
