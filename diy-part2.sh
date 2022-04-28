@@ -27,9 +27,6 @@ sed -i '5a m = Map("shadowsocksr", translate("ShadowSocksR Plus+ Settings"))' pa
 # Add luci-app-adguardhome
 git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
 
-# Add luci-app-smartdns
-svn co https://github.com/Lienol/openwrt-luci/branches/18.06/applications/luci-app-smartdns package/luci-app-smartdns
-
 # Add luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-dockerman
 git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerman
