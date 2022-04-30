@@ -41,7 +41,7 @@ git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic pa
 git clone https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
 
 # Add autocore
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/autocore/Makefile package/lean/autocore
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/autocore package/lean/autocore
 
 # Add autocore support for armvirt
 sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/autocore/Makefile
