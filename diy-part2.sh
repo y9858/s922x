@@ -38,6 +38,9 @@ git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic pa
 # Add luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
 
+# Add tailscale
+git clone https://github.com/y9858/openwrt-tailscale package/openwrt-tailscale
+
 # Add autocore support for armvirt
 sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/autocore/Makefile
 
