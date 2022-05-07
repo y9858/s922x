@@ -11,18 +11,15 @@
 #
 
 # Modify default theme
-rm -rf feeds/luci/themes/luci-theme-material
-git clone https://github.com/LuttyYang/luci-theme-material package/luci-theme-material
-sed -i 's/9. Themes/4. Themes/g' package/luci-theme-material/Makefile
-sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci/Makefile
+git clone https://github.com/y9858/luci-theme-atmaterial_new package/luci-theme-atmaterial
+sed -i 's/luci-theme-bootstrap/luci-theme-atmaterial/g' ./feeds/luci/collections/luci/Makefile
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
-# Add luci-app-ssr-plus
-git clone https://github.com/fw876/helloworld package/luci-app-ssr-plus
-sed -i '6d' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
-sed -i '5a m = Map("shadowsocksr", translate("ShadowSocksR Plus+ Settings"))' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
+# Add luci-app-passwall2
+git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
+git clone https://github.com/xiaorouji/openwrt-passwall2 package/luci-app-passwall2
 
 # Add luci-app-adguardhome
 git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
@@ -31,15 +28,8 @@ git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app
 rm -rf feeds/luci/applications/luci-app-dockerman
 git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerman
 
-# Add luci-app-unblockneteasemusic
-rm -rf feeds/luci/applications/luci-app-unblockmusic
-git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
-
 # Add luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
-
-# Add tailscale
-git clone https://github.com/y9858/openwrt-tailscale package/openwrt-tailscale
 
 # Add autocore support for armvirt
 sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/autocore/Makefile
