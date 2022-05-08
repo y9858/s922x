@@ -19,11 +19,10 @@ sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/l
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
-# Add luci-app-passwall2
-git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
-git clone https://github.com/xiaorouji/openwrt-passwall2 package/luci-app-passwall2
-sed -i '171,186d' package/luci-app-passwall2/luci-app-passwall2/luasrc/controller/passwall2.lua
-sed -i '370,388d' package/luci-app-passwall2/luci-app-passwall2/luasrc/controller/passwall2.lua
+# Add luci-app-ssr-plus
+git clone https://github.com/fw876/helloworld package/luci-app-ssr-plus
+sed -i '6d' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
+sed -i '5a m = Map("shadowsocksr", translate("ShadowSocksR Plus+ Settings"))' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
 
 # Add luci-app-adguardhome
 git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
@@ -31,6 +30,11 @@ git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app
 # Add luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-dockerman
 git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerman
+
+# Add luci-app-unblockneteasemusic
+rm -rf feeds/luci/applications/luci-app-unblockmusic
+git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
+sed -i '59s/^/#/' package/luci-app-unblockneteasemusic/root/etc/init.d/unblockneteasemusic
 
 # Add luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
