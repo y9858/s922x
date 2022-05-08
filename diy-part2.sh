@@ -11,8 +11,10 @@
 #
 
 # Modify default theme
-git clone https://github.com/y9858/luci-theme-atmaterial_new package/luci-theme-atmaterial
-sed -i 's/luci-theme-bootstrap/luci-theme-atmaterial/g' ./feeds/luci/collections/luci/Makefile
+rm -rf feeds/luci/themes/luci-theme-material
+git clone https://github.com/LuttyYang/luci-theme-material package/luci-theme-material
+sed -i 's/9. Themes/4. Themes/g' package/luci-theme-material/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci/Makefile
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
@@ -20,6 +22,8 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 # Add luci-app-passwall2
 git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 git clone https://github.com/xiaorouji/openwrt-passwall2 package/luci-app-passwall2
+sed -i '171,186d' package/luci-app-passwall2/luci-app-passwall2/luasrc/controller/passwall2.lua
+sed -i '370,388d' package/luci-app-passwall2/luci-app-passwall2/luasrc/controller/passwall2.lua
 
 # Add luci-app-adguardhome
 git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
