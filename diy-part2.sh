@@ -28,11 +28,6 @@ sed -i '7a m = Map("shadowsocksr", translate("ShadowSocksR Plus+ Settings"))' pa
 rm -rf feeds/luci/applications/luci-app-dockerman
 git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerman
 
-# Add luci-app-unblockneteasemusic
-rm -rf feeds/luci/applications/luci-app-unblockmusic
-git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
-sed -i '59s/^/#/' package/luci-app-unblockneteasemusic/root/etc/init.d/unblockneteasemusic
-
 # Add luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
 
