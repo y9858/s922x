@@ -19,10 +19,9 @@ sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/l
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
-# Add luci-app-v2raya
-git clone https://github.com/zxlhhyccc/luci-app-v2raya package/luci-app-v2raya
-git clone https://github.com/v2rayA/v2raya-openwrt package/v2raya-openwrt
-sed -i 's/+v2raya/+v2raya +ip-full +v2fly-geoip +v2fly-geosite +v2ray-core +v2ray-ctl +v2ray-extra/g' package/luci-app-v2raya/Makefile
+# Add luci-app-passwall
+git clone -b luci https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
+git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 
 # Add luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-dockerman
