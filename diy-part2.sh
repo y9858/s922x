@@ -19,8 +19,8 @@ sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/l
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
-# Add luci-app-openclash
-git clone https://github.com/vernesong/OpenClash package/luci-app-openclash
+# Add luci-app-amlogic
+svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
 
 # Add luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-dockerman
