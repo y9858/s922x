@@ -34,7 +34,7 @@ git clone https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
 git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
 
 # Add luci-app-smartdns
-git clone https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
+svn co https://github.com/Lienol/openwrt-luci/branches/18.06/applications/luci-app-smartdns package/luci-app-smartdns
 
 # Add autocore support for armvirt
 sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/autocore/Makefile
