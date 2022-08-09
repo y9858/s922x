@@ -19,9 +19,8 @@ sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/l
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
-# Add luci-app-passwall
-git clone -b luci https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
-git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
+# Add luci-app-bypass
+git clone https://github.com/kiddin9/openwrt-bypass package/luci-app-bypass
 
 # Add luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-dockerman
@@ -30,11 +29,8 @@ git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerma
 # Add luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
 
-# Add luci-app-adguardhome
-git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
-
-# Add luci-app-smartdns
-svn co https://github.com/Lienol/openwrt-luci/branches/18.06/applications/luci-app-smartdns package/luci-app-smartdns
+# Add luci-app-dnsfilter
+git clone https://github.com/kiddin9/luci-app-dnsfilter package/luci-app-dnsfilter
 
 # Add autocore support for armvirt
 sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/autocore/Makefile
