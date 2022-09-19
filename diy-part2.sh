@@ -24,7 +24,7 @@ sed -i 's/\/bin\/login/\/bin\/login -f root/' feeds/packages/utils/ttyd/files/tt
 
 # Add luci-app-ssr-plus
 git clone https://github.com/fw876/helloworld package/luci-app-ssr-plus
-sed -i 's/支持 SS/SSR/V2RAY/XRAY/TROJAN/NAIVEPROXY/SOCKS5/TUN 等协议/支持大多数协议/g' package/luci-app-ssr-plus/luci-app-ssr-plus/po/zh-cn/ssr-plus.po
+sed -i 's#支持 SS/SSR/V2RAY/XRAY/TROJAN/NAIVEPROXY/SOCKS5/TUN 等协议#全能翻墙客户端#g' package/luci-app-ssr-plus/luci-app-ssr-plus/po/zh-cn/ssr-plus.po
 
 # Add luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-dockerman
