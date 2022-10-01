@@ -24,14 +24,21 @@ sed -i 's/\/bin\/login/\/bin\/login -f root/' feeds/packages/utils/ttyd/files/tt
 
 # Add luci-app-ssr-plus
 git clone https://github.com/fw876/helloworld package/luci-app-ssr-plus
-sed -i 's#支持 SS/SSR/V2RAY/XRAY/TROJAN/NAIVEPROXY/SOCKS5/TUN 等协议#全能翻墙客户端#g' package/luci-app-ssr-plus/luci-app-ssr-plus/po/zh-cn/ssr-plus.po
+sed -i 's/<h3>//g' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
+sed -i 's#</h3>##g' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
+sed -i 's/<h3>//g' package/luci-app-ssr-plus/luci-app-ssr-plus/po/zh-cn/ssr-plus.po
+sed -i 's#</h3>##g' package/luci-app-ssr-plus/luci-app-ssr-plus/po/zh-cn/ssr-plus.po
 
 # Add luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-dockerman
 git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerman
 
-# Add luci-app-dnsfilter
-git clone https://github.com/kiddin9/luci-app-dnsfilter package/luci-app-dnsfilter
+# Add luci-app-unblockneteasemusic
+git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
+sed -i 's#*/5#17#g' package/luci-app-unblockneteasemusic/root/etc/init.d/unblockneteasemusic
+
+# Add luci-app-adguardhome
+svn co https://github.com/Lienol/openwrt-package/branches/other/luci-app-adguardhome package/luci-app-adguardhome
 
 # Add luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
