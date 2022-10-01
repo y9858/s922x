@@ -35,7 +35,7 @@ git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerma
 
 # Add luci-app-unblockneteasemusic
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
-sed -i 's#*/5#17#g' package/luci-app-unblockneteasemusic/root/etc/init.d/unblockneteasemusic
+sed -i 's#*/5#7#g' package/luci-app-unblockneteasemusic/root/etc/init.d/unblockneteasemusic
 
 # Add luci-app-adguardhome
 svn co https://github.com/Lienol/openwrt-package/branches/other/luci-app-adguardhome package/luci-app-adguardhome
