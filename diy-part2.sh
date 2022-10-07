@@ -35,7 +35,7 @@ git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerma
 
 # Add luci-app-unblockneteasemusic
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
-svn co https://github.com/immortalwrt/packages/trunk/multimedia/yt-dlp package/luci-app-unblockneteasemusic/yt-dlp
+svn co https://github.com/immortalwrt/packages/trunk/multimedia/yt-dlp feeds/packages/multimedia/yt-dlp
 sed -i 's#*/5#7#g' package/luci-app-unblockneteasemusic/root/etc/init.d/unblockneteasemusic
 sed -i '89s/*/0/' package/luci-app-unblockneteasemusic/root/etc/init.d/unblockneteasemusic
 sed -i 's/uclient-fetch/uclient-fetch +yt-dlp/g' package/luci-app-unblockneteasemusic/Makefile
