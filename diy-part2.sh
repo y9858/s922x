@@ -11,8 +11,10 @@
 #
 
 # Modify default theme
-svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-atmaterial_new package/luci-theme-atmaterial
-sed -i 's/luci-theme-bootstrap/luci-theme-atmaterial/g' ./feeds/luci/collections/luci/Makefile
+rm -rf feeds/luci/themes/luci-theme-material
+git clone https://github.com/LuttyYang/luci-theme-material package/luci-theme-material
+sed -i 's/9. Themes/4. Themes/g' package/luci-theme-material/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci/Makefile
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
