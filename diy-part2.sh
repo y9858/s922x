@@ -11,10 +11,8 @@
 #
 
 # Modify default theme
-rm -rf feeds/luci/themes/luci-theme-material
-git clone https://github.com/LuttyYang/luci-theme-material package/luci-theme-material
-sed -i 's/9. Themes/4. Themes/g' package/luci-theme-material/Makefile
-sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci/Makefile
+git clone https://github.com/esirplayground/luci-theme-atmaterial-ColorIcon package/luci-theme-atmaterial_ci
+sed -i 's/luci-theme-bootstrap/luci-theme-atmaterial_ci/g' ./feeds/luci/collections/luci/Makefile
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
@@ -36,6 +34,7 @@ svn co https://github.com/immortalwrt/packages/trunk/multimedia/yt-dlp feeds/pac
 sed -i 's#*/5#7#g' package/luci-app-unblockneteasemusic/root/etc/init.d/unblockneteasemusic
 sed -i '89s/*/0/' package/luci-app-unblockneteasemusic/root/etc/init.d/unblockneteasemusic
 sed -i 's/uclient-fetch/uclient-fetch +yt-dlp/g' package/luci-app-unblockneteasemusic/Makefile
+sed -i 's/解除网易云音乐播放限制/网易云音乐/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
 
 # Add luci-app-dnsfilter
 git clone https://github.com/kiddin9/luci-app-dnsfilter package/luci-app-dnsfilter
