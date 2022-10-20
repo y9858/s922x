@@ -11,8 +11,8 @@
 #
 
 # Modify default theme
-git clone https://github.com/esirplayground/luci-theme-atmaterial-ColorIcon package/luci-theme-atmaterial_ci
-sed -i 's/luci-theme-bootstrap/luci-theme-atmaterial_ci/g' ./feeds/luci/collections/luci/Makefile
+git clone https://github.com/Dawneng/luci-theme-atmaterial package/luci-theme-atmaterial
+sed -i 's/luci-theme-bootstrap/luci-theme-atmaterial/g' ./feeds/luci/collections/luci/Makefile
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
