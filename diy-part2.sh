@@ -28,14 +28,6 @@ git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 rm -rf feeds/luci/applications/luci-app-dockerman
 git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerman
 
-# Add luci-app-unblockneteasemusic
-git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
-svn co https://github.com/immortalwrt/packages/trunk/multimedia/yt-dlp feeds/packages/multimedia/yt-dlp
-sed -i 's#*/5#7#g' package/luci-app-unblockneteasemusic/root/etc/init.d/unblockneteasemusic
-sed -i '89s/*/0/' package/luci-app-unblockneteasemusic/root/etc/init.d/unblockneteasemusic
-sed -i 's/uclient-fetch/uclient-fetch +yt-dlp/g' package/luci-app-unblockneteasemusic/Makefile
-sed -i 's/解除网易云音乐播放限制/网易云音乐/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
-
 # Add luci-app-dnsfilter
 git clone https://github.com/kiddin9/luci-app-dnsfilter package/luci-app-dnsfilter
 
