@@ -11,7 +11,9 @@
 #
 
 # Modify default theme
-git clone https://github.com/y9858/luci-theme-atmaterial package/luci-theme-atmaterial
+git clone https://github.com/Dawneng/luci-theme-atmaterial package/luci-theme-atmaterial
+sed -i '309s/fff/0099CC/' package/luci-theme-atmaterial/htdocs/luci-static/atmaterial/css/style.css
+sed -i '529d' package/luci-theme-atmaterial/htdocs/luci-static/atmaterial/css/style.css
 sed -i 's/luci-theme-bootstrap/luci-theme-atmaterial/g' ./feeds/luci/collections/luci/Makefile
 
 # Modify default IP
@@ -21,15 +23,15 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 sed -i 's/\/bin\/login/\/bin\/login -f root/' feeds/packages/utils/ttyd/files/ttyd.config
 
 # Add luci-app-passwall
-git clone -b luci https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
+svn co https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall package/luci-app-passwall
 git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 
 # Add luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-dockerman
-git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerman
+svn co https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman package/luci-app-dockerman
 
 # Add luci-app-dnsfilter
 git clone https://github.com/kiddin9/luci-app-dnsfilter package/luci-app-dnsfilter
 
 # Add luci-app-amlogic
-git clone https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
+svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
