@@ -26,7 +26,7 @@ sed -i 's/\/bin\/login/\/bin\/login -f root/' feeds/packages/utils/ttyd/files/tt
 sed -i 's/解锁网易云灰色歌曲/网易云音乐/g' feeds/luci/applications/luci-app-unblockmusic/po/zh-cn/unblockmusic.po
 
 # Modify luci-app-turboacc
-sed -i 's/Turbo ACC 网络加速/网络加速/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
+sed -i '2s/Turbo ACC 网络加速/网络加速/' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
 
 # Add luci-app-openclash
 svn co https://github.com/vernesong/OpenClash/branches/dev/luci-app-openclash package/luci-app-openclash
