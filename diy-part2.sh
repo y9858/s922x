@@ -28,8 +28,12 @@ sed -i 's/解锁网易云灰色歌曲/网易云音乐/g' feeds/luci/applications
 # Modify luci-app-turboacc
 sed -i '2s/Turbo ACC 网络加速/网络加速/' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
 
-# Add luci-app-openclash
-svn co https://github.com/vernesong/OpenClash/branches/dev/luci-app-openclash package/luci-app-openclash
+# Add luci-app-passwall2
+svn co https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2 package/luci-app-passwall2
+git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
+
+# Add luci-app-adguardhome
+svn co https://github.com/rufengsuixing/luci-app-adguardhome/branches/beta package/luci-app-adguardhome
 
 # Add luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-dockerman
