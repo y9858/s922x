@@ -22,9 +22,6 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 # ttyd 免帐号登录
 sed -i 's/\/bin\/login/\/bin\/login -f root/' feeds/packages/utils/ttyd/files/ttyd.config
 
-# Modify luci-app-unblockmusic
-sed -i 's/解锁网易云灰色歌曲/网易云音乐/g' feeds/luci/applications/luci-app-unblockmusic/po/zh-cn/unblockmusic.po
-
 # Modify luci-app-turboacc
 sed -i '2s/Turbo ACC 网络加速/网络加速/' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
 
@@ -32,8 +29,8 @@ sed -i '2s/Turbo ACC 网络加速/网络加速/' feeds/luci/applications/luci-ap
 svn co https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2 package/luci-app-passwall2
 git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 
-# Add luci-app-adguardhome
-svn co https://github.com/rufengsuixing/luci-app-adguardhome/branches/beta package/luci-app-adguardhome
+# Add luci-app-dnsfilter
+git clone https://github.com/y9858/luci-app-dnsfilter package/luci-app-dnsfilter
 
 # Add luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-dockerman
