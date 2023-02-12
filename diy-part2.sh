@@ -29,9 +29,6 @@ sed -i '2s/Turbo ACC 网络加速/网络加速/' feeds/luci/applications/luci-ap
 svn co https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2 package/luci-app-passwall2
 git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 
-# Add luci-app-dnsfilter
-git clone https://github.com/y9858/luci-app-dnsfilter package/luci-app-dnsfilter
-
 # Add luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-dockerman
 svn co https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman package/luci-app-dockerman
