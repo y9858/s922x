@@ -32,6 +32,3 @@ git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 # Add luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-dockerman
 svn co https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman package/luci-app-dockerman
-
-# Add luci-app-amlogic
-svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
