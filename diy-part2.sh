@@ -20,6 +20,9 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 # ttyd 免帐号登录
 sed -i 's/\/bin\/login/\/bin\/login -f root/' feeds/packages/utils/ttyd/files/ttyd.config
 
+# bash 替换 ash
+sed -i "36i sed -i '1s/ash/bash/' /etc/passwd" package/lean/default-settings/files/zzz-default-settings
+
 # Modify luci-app-turboacc
 sed -i '2s/Turbo ACC 网络加速/网络加速/' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
 
