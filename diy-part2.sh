@@ -29,3 +29,7 @@ sed -i '2s/Turbo ACC 网络加速/网络加速/' feeds/luci/applications/luci-ap
 # Add luci-app-passwall2
 svn co https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2 package/luci-app-passwall2
 git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
+
+# Add luci-app-unblockneteasemusic
+git clone -b master https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
+sed -i 's/解除网易云音乐播放限制/网易云音乐/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
