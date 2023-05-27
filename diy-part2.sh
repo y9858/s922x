@@ -36,6 +36,7 @@ svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/l
 
 # Add luci-app-v2raya
 svn co https://github.com/zxlhhyccc/luci-app-v2raya/branches/18.06 package/luci-app-v2raya
+svn co https://github.com/v2rayA/v2raya-openwrt/trunk/v2raya package/v2raya
 
 # Add luci-app-passwall2
 svn co https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2 package/luci-app-passwall2
