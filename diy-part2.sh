@@ -32,15 +32,17 @@ sed -i '2s/Turbo ACC 网络加速/网络加速/' feeds/luci/applications/luci-ap
 sed -i 's/解锁网易云灰色歌曲/音乐解锁/g' feeds/luci/applications/luci-app-unblockmusic/po/zh-cn/unblockmusic.po
 
 # Add luci-app-openclash
-svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
+#svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
 
 # Add luci-app-v2raya
 svn co https://github.com/zxlhhyccc/luci-app-v2raya/branches/18.06 package/luci-app-v2raya
 svn co https://github.com/v2rayA/v2raya-openwrt/trunk/v2raya package/v2raya
+svn co https://github.com/v2rayA/v2raya-openwrt/trunk/v2ray-core package/v2ray-core
+svn co https://github.com/v2rayA/v2raya-openwrt/trunk/v2fly-geodata package/v2fly-geodata
 
 # Add luci-app-passwall2
-svn co https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2 package/luci-app-passwall2
-git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
+#svn co https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2 package/luci-app-passwall2
+#git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 
 # Add luci-app-unblockneteasemusic
 git clone -b master https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
