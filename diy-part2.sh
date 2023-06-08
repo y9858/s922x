@@ -34,6 +34,12 @@ sed -i 's/解锁网易云灰色歌曲/音乐解锁/g' feeds/luci/applications/lu
 # Add luci-app-openclash
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
 
+# Add luci-app-ssr-plus
+git clone https://github.com/fw876/helloworld package/luci-app-ssr-plus
+sed -i '10s/ShadowSocksR Plus+/SSR Plus+/' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
+sed -i '13s/<h3>//' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
+sed -i '13s#</h3>##' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
+
 # Add luci-app-passwall2
 svn co https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2 package/luci-app-passwall2
 git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
