@@ -41,8 +41,8 @@ sed -i '13s/<h3>//' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi
 sed -i '13s#</h3>##' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
 
 # Add luci-app-passwall2
-svn co https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2 package/luci-app-passwall2
-git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
+#svn co https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2 package/luci-app-passwall2
+#git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 
 # Add luci-app-unblockneteasemusic
 git clone -b master https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
