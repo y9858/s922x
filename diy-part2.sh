@@ -15,7 +15,7 @@ git clone https://github.com/y9858/luci-theme-opentomcat package/luci-theme-open
 sed -i 's/luci-theme-bootstrap/luci-theme-opentomcat/g' ./feeds/luci/collections/luci/Makefile
 
 # Set etc/openwrt_release
-sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R$(date +%Y.%m.%d)'|g" package/lean/default-settings/files/zzz-default-settings
+sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R$(date +%Y.%m.%d) 七夕版'|g" package/lean/default-settings/files/zzz-default-settings
 echo "DISTRIB_SOURCECODE='lede'" >>package/base-files/files/etc/openwrt_release
 
 # Modify default IP
@@ -32,15 +32,19 @@ sed -i '2s/Turbo ACC 网络加速/网络加速/' feeds/luci/applications/luci-ap
 sed -i 's/解锁网易云灰色歌曲/音乐解锁/g' feeds/luci/applications/luci-app-unblockmusic/po/zh-cn/unblockmusic.po
 
 # Add luci-app-openclash
-svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
+#svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
+
+# Add luci-app-passwall2
+svn co https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2 package/luci-app-passwall2
+git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 
 # Add luci-app-ssr-plus
-git clone https://github.com/fw876/helloworld package/luci-app-ssr-plus
-sed -i '10s/ShadowSocksR Plus+/SSR Plus+/' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
-sed -i '13s/<h3>//' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
-sed -i '13s#</h3>##' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
-sed -i '442,443s/<h3>//' package/luci-app-ssr-plus/luci-app-ssr-plus/po/zh-cn/ssr-plus.po
-sed -i '442,443s#</h3>##' package/luci-app-ssr-plus/luci-app-ssr-plus/po/zh-cn/ssr-plus.po
+#git clone https://github.com/fw876/helloworld package/luci-app-ssr-plus
+#sed -i '10s/ShadowSocksR Plus+/SSR Plus+/' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
+#sed -i '13s/<h3>//' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
+#sed -i '13s#</h3>##' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
+#sed -i '442,443s/<h3>//' package/luci-app-ssr-plus/luci-app-ssr-plus/po/zh-cn/ssr-plus.po
+#sed -i '442,443s#</h3>##' package/luci-app-ssr-plus/luci-app-ssr-plus/po/zh-cn/ssr-plus.po
 
 # Add luci-app-unblockneteasemusic
 git clone -b master https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
