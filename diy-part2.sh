@@ -15,7 +15,7 @@ git clone https://github.com/y9858/luci-theme-opentomcat package/luci-theme-open
 sed -i 's/luci-theme-bootstrap/luci-theme-opentomcat/g' ./feeds/luci/collections/luci/Makefile
 
 # Set etc/openwrt_release
-sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R$(date +%Y.%m.%d) ❤七夕版❤'|g" package/lean/default-settings/files/zzz-default-settings
+sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R$(date +%Y.%m.%d) ❤国庆版❤'|g" package/lean/default-settings/files/zzz-default-settings
 echo "DISTRIB_SOURCECODE='lede'" >>package/base-files/files/etc/openwrt_release
 
 # Modify default IP
@@ -34,10 +34,9 @@ sed -i 's/解锁网易云灰色歌曲/音乐解锁/g' feeds/luci/applications/lu
 # Add luci-app-openclash
 #svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
 
-# Add luci-app-passwall2
-svn co https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2 package/luci-app-passwall2
-sed -i 's/Manually update/手动更新/g' package/luci-app-passwall2/luasrc/view/passwall2/rule/rule_version.htm
-git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
+# Add luci-app-passwall
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/luci-app-passwall
+git clone https://github.com/xiaorouji/openwrt-passwall-packages package//openwrt-passwall-packages
 
 # Add luci-app-ssr-plus
 #git clone https://github.com/fw876/helloworld package/luci-app-ssr-plus
