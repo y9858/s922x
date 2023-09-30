@@ -36,7 +36,7 @@ sed -i 's/解锁网易云灰色歌曲/音乐解锁/g' feeds/luci/applications/lu
 
 # Add luci-app-passwall
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/luci-app-passwall
-git clone https://github.com/xiaorouji/openwrt-passwall-packages package//openwrt-passwall-packages
+git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
 
 # Add luci-app-ssr-plus
 #git clone https://github.com/fw876/helloworld package/luci-app-ssr-plus
