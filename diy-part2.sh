@@ -21,7 +21,7 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 sed -i 's/\/bin\/login/\/bin\/login -f root/' feeds/packages/utils/ttyd/files/ttyd.config
 
 # bash 替换 ash
-sed -i "23i sed -i '1s/ash/zsh/' /etc/passwd" package/lean/default-settings/zzz-default-settings
+sed -i "23i sed -i '1s/ash/zsh/' /etc/passwd" package/lean/default-settings/files/zzz-default-settings
 
 # Add luci-app-passwall
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/luci-app-passwall
