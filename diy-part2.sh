@@ -20,11 +20,8 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 # ttyd 免帐号登录
 sed -i 's/\/bin\/login/\/bin\/login -f root/' feeds/packages/utils/ttyd/files/ttyd.config
 
-# bash 替换 ash
-sed -i "36i sed -i '1s/ash/bash/' /etc/passwd" package/lean/default-settings/files/zzz-default-settings
-
 # Add luci-app-v2raya
-svn co https://github.com/v2rayA/v2raya-openwrt/trunk/luci-app-v2raya package/v2raya-openwrt/luci-app-v2raya
+git clone -b 18.06 https://github.com/zxlhhyccc/luci-app-v2raya package/v2raya-openwrt/luci-app-v2raya
 svn co https://github.com/v2rayA/v2raya-openwrt/trunk/v2raya package/v2raya-openwrt/v2raya
 svn co https://github.com/v2rayA/v2raya-openwrt/trunk/v2ray-core package/v2raya-openwrt/v2ray-core
 svn co https://github.com/v2rayA/v2raya-openwrt/trunk/v2fly-geodata package/v2raya-openwrt/v2fly-geodata
