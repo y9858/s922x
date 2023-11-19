@@ -27,7 +27,7 @@ sed -i 's/解除网易云音乐播放限制/音乐解锁/g' feeds/luci/applicati
 
 # Modify v2raya
 sed -i 's/xray/v2ray/g' feeds/packages/net/v2raya/Makefile
-sed -i 's/+v2ray-core/+v2ray-core +v2ray-geoip +v2ray-geosite/g' feeds/packages/net/v2raya/Makefile
+sed -i 's/+v2ray-core/+v2ray-core +v2ray-geoip +v2ray-geosite +ip-full/g' feeds/packages/net/v2raya/Makefile
 
 # Add luci-app-amlogic
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
