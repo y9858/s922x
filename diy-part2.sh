@@ -11,7 +11,8 @@
 #
 
 # Modify default theme
-sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci-light/Makefile
+git clone https://github.com/y9858/luci-theme-opentomcat package/luci-theme-opentomcat
+sed -i 's/luci-theme-bootstrap/luci-theme-opentomcat/g' ./feeds/luci/collections/luci/Makefile
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
@@ -19,16 +20,13 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 # ttyd 免帐号登录
 sed -i 's/\/bin\/login/\/bin\/login -f root/' feeds/packages/utils/ttyd/files/ttyd.config
 
-# bash 替换 ash
-#sed -i "23i sed -i '1s/ash/bash/' /etc/passwd" package/emortal/default-settings/files/99-default-settings
+# Add luci-app-passwall
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/luci-app-passwall
+git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
 
-# Modify appname
-sed -i 's/解除网易云音乐播放限制/音乐解锁/g' feeds/luci/applications/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
-
-# Modify v2raya
-sed -i 's/xray/v2ray/g' feeds/packages/net/v2raya/Makefile
-sed -i 's/+v2ray-core/+v2ray-core +v2ray-geoip +v2ray-geosite +ip-full/g' feeds/packages/net/v2raya/Makefile
+# Add luci-app-unblockneteasemusic
+git clone -b master https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
+sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
 
 # Add luci-app-amlogic
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
-sed -i 's/+block-mount/+libuci-lua +lua +luci-compat +luci-lib-jsonc +block-mount/g' package/luci-app-amlogic/Makefile
