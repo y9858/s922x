@@ -20,9 +20,13 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 # ttyd 免帐号登录
 sed -i 's/\/bin\/login/\/bin\/login -f root/' feeds/packages/utils/ttyd/files/ttyd.config
 
-# Add luci-app-passwall
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/luci-app-passwall
-git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
+# Add luci-app-ssr-plus
+git clone -b main https://github.com/fw876/helloworld package/luci-app-ssr-plus
+sed -i '10s/ShadowSocksR Plus+/SSR Plus+/' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
+sed -i '13s/<h3>//' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
+sed -i '13s#</h3>##' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
+sed -i 's/<h3>//g' package/luci-app-ssr-plus/luci-app-ssr-plus/po/zh-cn/ssr-plus.po
+sed -i 's#</h3>##g' package/luci-app-ssr-plus/luci-app-ssr-plus/po/zh-cn/ssr-plus.po
 
 # Add luci-app-openclash
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
