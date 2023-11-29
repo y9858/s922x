@@ -11,8 +11,7 @@
 #
 
 # Modify default theme
-git clone https://github.com/y9858/luci-theme-opentomcat package/luci-theme-opentomcat
-sed -i 's/luci-theme-bootstrap/luci-theme-opentomcat/g' ./feeds/luci/collections/luci/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci-light/Makefile
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
@@ -20,20 +19,10 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 # ttyd 免帐号登录
 sed -i 's/\/bin\/login/\/bin\/login -f root/' feeds/packages/utils/ttyd/files/ttyd.config
 
-# Add luci-app-ssr-plus
-git clone -b main https://github.com/fw876/helloworld package/luci-app-ssr-plus
-sed -i '10s/ShadowSocksR Plus+/SSR Plus+/' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
-sed -i '13s/<h3>//' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
-sed -i '13s#</h3>##' package/luci-app-ssr-plus/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/client.lua
-sed -i 's/<h3>//g' package/luci-app-ssr-plus/luci-app-ssr-plus/po/zh-cn/ssr-plus.po
-sed -i 's#</h3>##g' package/luci-app-ssr-plus/luci-app-ssr-plus/po/zh-cn/ssr-plus.po
-
-# Add luci-app-openclash
-svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
-
 # Add luci-app-unblockneteasemusic
-git clone -b master https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
-sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
+git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
+sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
 
 # Add luci-app-amlogic
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
+sed -i 's/+block-mount/+libuci-lua +lua +luci-compat +luci-lib-jsonc +block-mount/g' package/luci-app-amlogic/Makefile
