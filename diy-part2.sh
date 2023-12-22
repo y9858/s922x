@@ -24,8 +24,8 @@ sed -i 's/\/bin\/login/\/bin\/login -f root/' feeds/packages/utils/ttyd/files/tt
 svn co https://github.com/vernesong/OpenClash/branches/dev/luci-app-openclash package/luci-app-openclash
 
 # Add luci-app-passwall
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/luci-app-passwall
-git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
+#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/luci-app-passwall
+#git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
 
 # Add luci-app-mosdns
 find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
