@@ -25,11 +25,12 @@ git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall package/luci-a
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
 
 # Add luci-app-openclash
-git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
+git clone --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
 
 # Add luci-app-mosdns
 find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
 find ./ | grep Makefile | grep mosdns | xargs rm -f
+find ./ | grep Makefile | grep v2dat | xargs rm -f
 git clone --depth 1 https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 git clone --depth 1 https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
