@@ -39,5 +39,8 @@ sed -i 's/default NODEJS_16/default NODEJS_18/g' feeds/packages/lang/node/Makefi
 git clone -b master --depth 1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
 
+# Add luci-app-netspeedtest
+git clone --depth 1 https://github.com/sirpdboy/netspeedtest package/luci-app-netspeedtest
+
 # Add luci-app-amlogic
 git clone --depth 1 https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
