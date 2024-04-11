@@ -31,6 +31,3 @@ find ./ | grep Makefile | grep mosdns | xargs rm -f
 find ./ | grep Makefile | grep v2dat | xargs rm -f
 git clone --depth 1 https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 git clone --depth 1 https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
-
-# Add luci-app-amlogic
-git clone --depth 1 https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
