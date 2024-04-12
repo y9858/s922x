@@ -11,7 +11,8 @@
 #
 
 # Modify default theme
-sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci-light/Makefile
+git clone --depth 1 https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
+sed -i 's/luci-theme-bootstrap/luci-theme-infinityfreedom/g' ./feeds/luci/collections/luci/Makefile
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
@@ -19,11 +20,12 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 # ttyd 免帐号登录
 sed -i 's/\/bin\/login/\/bin\/login -f root/' feeds/packages/utils/ttyd/files/ttyd.config
 
-# bash 替换 ash
-sed -i "23i sed -i '1s/ash/bash/' /etc/passwd" package/emortal/default-settings/files/99-default-settings
+# Add luci-app-passwall
+git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
+git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
 
-# Modify appname
-sed -i 's/解除网易云音乐播放限制/音乐解锁/g' feeds/luci/applications/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
+# Add luci-app-openclash
+git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
 
 # Add luci-app-mosdns
 find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
@@ -31,3 +33,11 @@ find ./ | grep Makefile | grep mosdns | xargs rm -f
 find ./ | grep Makefile | grep v2dat | xargs rm -f
 git clone --depth 1 https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 git clone --depth 1 https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
+
+# Add luci-app-unblockneteasemusic
+sed -i 's/default NODEJS_16/default NODEJS_18/g' feeds/packages/lang/node/Makefile
+git clone -b master --depth 1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
+sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
+
+# Add luci-app-amlogic
+git clone --depth 1 https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
