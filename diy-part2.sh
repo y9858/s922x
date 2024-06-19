@@ -35,7 +35,6 @@ git clone --depth 1 https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdn
 git clone --depth 1 https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
 # Add luci-app-unblockneteasemusic
-sed -i 's/default NODEJS_18/default NODEJS_20/g' feeds/packages/lang/node/Makefile
 git clone -b master --depth 1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
 
