@@ -40,6 +40,3 @@ sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unb
 
 # Add luci-app-amlogic
 git clone --depth 1 https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
-
-sed -i '52i HOST_CXXFLAGS += -fpermissive' feeds/packages/lang/node/Makefile
-sed -i 's/default NODEJS_18/default NODEJS_20/' feeds/packages/lang/node/Makefile
