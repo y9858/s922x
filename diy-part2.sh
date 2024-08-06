@@ -27,16 +27,16 @@ git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages packa
 # Add luci-app-openclash
 git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
 
-# Add luci-app-mosdns
-find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
-find ./ | grep Makefile | grep mosdns | xargs rm -f
-find ./ | grep Makefile | grep v2dat | xargs rm -f
-git clone --depth 1 https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
-git clone --depth 1 https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
-
 # Add luci-app-unblockneteasemusic
 git clone -b master --depth 1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
 
 # Add luci-app-amlogic
 git clone --depth 1 https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
+
+# Add luci-app-mosdns
+find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
+find ./ | grep Makefile | grep mosdns | xargs rm -f
+find ./ | grep Makefile | grep v2dat | xargs rm -f
+git clone --depth 1 https://github.com/sbwml/luci-app-mosdns -b v5-lua package/mosdns
+git clone --depth 1 https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
