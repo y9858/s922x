@@ -43,3 +43,6 @@ git clone --depth 1 https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
 sed -i '52i HOST_CXXFLAGS += -fpermissive' feeds/packages/lang/node/Makefile
 sed -i 's/default NODEJS_18/default NODEJS_20/' feeds/packages/lang/node/Makefile
+
+rm -rf ./package/network/services/dnsmasq
+git clone --depth 1 https://github.com/y9858/dnsmasq package/network/services/dnsmasq
