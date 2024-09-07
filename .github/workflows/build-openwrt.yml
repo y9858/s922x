@@ -8,16 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build OpenWrt
-
-on:
-  repository_dispatch:
-  workflow_dispatch:
-    inputs:
-      ssh:
-        description: 'SSH connection to Actions'
-        required: false
-        default: 'false'
+name: 编译 OpenWrt
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -26,9 +17,8 @@ env:
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
-  UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
-  UPLOAD_RELEASE: false
+  UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
 
 jobs:
@@ -36,10 +26,25 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@main
+    - name: 检测
+      uses: actions/checkout@v4
+      
+    - name: 检查服务器性能
+      run: |
+        echo "警告!!!"
+        echo "分配的服务器性能有限，若选择的插件过多，务必注意CPU性能！"
+        echo -e "已知CPU型号(降序): 7763，8370C，8272CL，8171M，E5-2673\n"
+        echo "--------------------------CPU信息--------------------------"
+        echo "CPU物理数量: $(cat /proc/cpuinfo | grep "physical id" | sort | uniq | wc -l)"
+        echo "CPU核心数量: $(nproc)"
+        echo -e "CPU型号信息:$(cat /proc/cpuinfo | grep -m1 name | awk -F: '{print $2}')\n"
+        echo "--------------------------内存信息--------------------------"
+        echo "已安装内存详细信息:"
+        echo -e "$(sudo lshw -short -C memory | grep GiB)\n"
+        echo "--------------------------硬盘信息--------------------------"
+        echo "硬盘数量: $(ls /dev/sd* | grep -v [1-9] | wc -l)" && df -hT
 
-    - name: Free disk space
+    - name: 清理磁盘空间
       uses: jlumbroso/free-disk-space@main
       with:
         # this might remove tools that are actually needed,
@@ -53,10 +58,11 @@ jobs:
         large-packages: true
         swap-storage: true
 
-    - name: Initialization environment
+    - name: 初始化环境
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
+        docker rmi $(docker images -q)
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc /etc/mysql /etc/php
         sudo -E apt-get -y purge azure-cli* docker* ghc* zulu* hhvm* llvm* firefox* google* dotnet* aspnetcore* powershell* openjdk* adoptopenjdk* mysql* php* mongodb* moby* snap* || true
         sudo -E apt-get -qq update
@@ -67,27 +73,27 @@ jobs:
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
 
-    - name: Clone source code
+    - name: 克隆源代码
       working-directory: /workdir
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
-    - name: Load custom feeds
+    - name: 加载自定义订阅源
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
         chmod +x $DIY_P1_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
 
-    - name: Update feeds
+    - name: 更新订阅源
       run: cd openwrt && ./scripts/feeds update -a
 
-    - name: Install feeds
+    - name: 安装订阅源
       run: cd openwrt && ./scripts/feeds install -a
 
-    - name: Load custom configuration
+    - name: 加载自定义配置
       run: |
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
@@ -95,14 +101,7 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
-    - name: SSH connection to Actions
-      uses: P3TERX/ssh2actions@v1.0.0
-      if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
-      env:
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-
-    - name: Download package
+    - name: 下载软件包
       id: package
       run: |
         cd openwrt
@@ -111,55 +110,36 @@ jobs:
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
 
-    - name: Compile the firmware
+    - name: 编译固件
       id: compile
       run: |
         cd openwrt
         echo -e "$(nproc) thread compile"
-        make -j$(nproc) || make -j1 || make -j1 V=s
-        echo "::set-output name=status::success"
+        make -j$(($(nproc) + 1)) V=s || make -j1 || make -j1 V=s
         grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
         [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
         echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
 
-    - name: Check space usage
+    - name: 检查空间使用
       if: (!cancelled())
       run: df -hT
 
-    - name: Upload bin directory
-      uses: actions/upload-artifact@main
-      if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
-      with:
-        name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
-        path: openwrt/bin
-
-    - name: Organize files
+    - name: 整理文件
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
         cd openwrt/bin/targets/*/*
         rm -rf packages
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
-        echo "::set-output name=status::success"
 
-    - name: Upload firmware directory
+    - name: 上传固件到 artifacts
       uses: actions/upload-artifact@main
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
         name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
 
-    - name: Generate release tag
-      id: tag
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-      run: |
-        echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H%M")"
-        touch release.txt
-        [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
-        [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
-        echo "::set-output name=status::success"
-
-    - name: Upload firmware to release
+    - name: 上传固件到 releases
       uses: softprops/action-gh-release@v1
       if: steps.tag.outputs.status == 'success' && !cancelled()
       env:
@@ -169,17 +149,11 @@ jobs:
         body_path: release.txt
         files: ${{ env.FIRMWARE }}/*
 
-    - name: Delete workflow runs
-      uses: GitRML/delete-workflow-runs@main
+    - name: 删除 releases 和 workflows runs
+      uses: ophub/delete-releases-workflows@main
       with:
-        retain_days: 1
-        keep_minimum_runs: 3
-
-    - name: Remove old Releases
-      uses: dev-drprasad/delete-older-releases@v0.1.0
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-      with:
-        keep_latest: 3
-        delete_tags: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        delete_releases: true
+        releases_keep_latest: 5
+        delete_workflows: true
+        workflows_keep_day: 10
+        gh_token: ${{ secrets.GITHUB_TOKEN }}
