@@ -162,6 +162,27 @@ jobs:
         body_path: release.txt
         files: ${{ env.FIRMWARE }}/*
 
+    - name: 打包电视盒子固件
+      uses: y9858/openwrt_packit@master
+      env:
+        OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*.tar.gz
+        SCRIPT_REPO_URL: y9858/openwrt_packit
+        SCRIPT_REPO_BRANCH: master
+        PACKAGE_SOC: s905d
+        KERNEL_REPO_URL: breakings/OpenWrt
+        KERNEL_VERSION_NAME: 6.1.66
+        KERNEL_AUTO_LATEST: false
+        GZIP_IMGS: .7z
+        WHOAMI: y9858
+        OPENWRT_VER: R$(date +%m.%d)
+        SW_FLOWOFFLOAD: 0
+        HW_FLOWOFFLOAD: 0
+        SFE_FLOW: 0
+        ENABLE_WIFI_K504: 0
+        ENABLE_WIFI_K510: 0
+        DISTRIB_REVISION: R$(date +%m.%d)
+        DISTRIB_DESCRIPTION: OpenWrt
+    
     - name: 删除 releases 和 workflow runs
       uses: ophub/delete-releases-workflows@main
       with:
