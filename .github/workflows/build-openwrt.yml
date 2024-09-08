@@ -174,15 +174,26 @@ jobs:
         KERNEL_AUTO_LATEST: false
         GZIP_IMGS: .7z
         WHOAMI: y9858
-        OPENWRT_VER: R$(date +%m.%d)
+        OPENWRT_VER: R$(date +%Y.%m.%d)
         SW_FLOWOFFLOAD: 0
         HW_FLOWOFFLOAD: 0
         SFE_FLOW: 0
         ENABLE_WIFI_K504: 0
         ENABLE_WIFI_K510: 0
-        DISTRIB_REVISION: R$(date +%m.%d)
+        DISTRIB_REVISION: R$(date +%Y.%m.%d)
         DISTRIB_DESCRIPTION: OpenWrt
-    
+
+    - name: 上传电视盒子固件
+      uses: ncipollo/release-action@main
+      if: ${{ env.PACKAGED_STATUS }} == 'success' && !cancelled()
+      with:
+        tag: ${{ steps.codes.outputs.build_tag }}
+        artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
+        allowUpdates: true
+        removeArtifacts: false
+        replacesArtifacts: true
+        token: ${{ secrets.GITHUB_TOKEN }}
+
     - name: 删除 releases 和 workflow runs
       uses: ophub/delete-releases-workflows@main
       with:
