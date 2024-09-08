@@ -187,7 +187,7 @@ jobs:
       uses: ncipollo/release-action@main
       if: ${{ env.PACKAGED_STATUS }} == 'success' && !cancelled()
       with:
-        tag: ${{ steps.codes.outputs.build_tag }}
+        tag: ${{ steps.tag.outputs.release_tag }}
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         allowUpdates: true
         removeArtifacts: false
