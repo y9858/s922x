@@ -174,13 +174,13 @@ jobs:
         KERNEL_AUTO_LATEST: false
         GZIP_IMGS: .7z
         WHOAMI: y9858
-        OPENWRT_VER: R$(date +%Y.%m.%d)
+        OPENWRT_VER: R$(date +%y.%m.%d)
         SW_FLOWOFFLOAD: 0
         HW_FLOWOFFLOAD: 0
         SFE_FLOW: 0
         ENABLE_WIFI_K504: 0
         ENABLE_WIFI_K510: 0
-        DISTRIB_REVISION: R$(date +%Y.%m.%d)
+        DISTRIB_REVISION: R$(date +%y.%m.%d)
         DISTRIB_DESCRIPTION: OpenWrt
 
     - name: 上传电视盒子固件
