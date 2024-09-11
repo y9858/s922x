@@ -46,3 +46,6 @@ sed -i 's/default NODEJS_18/default NODEJS_20/' feeds/packages/lang/node/Makefil
 
 rm -rf ./package/network/services/dnsmasq
 git clone --depth 1 https://github.com/y9858/dnsmasq package/network/services/dnsmasq
+
+rm -rf ./package/libs/openssl
+git clone --depth 1 https://github.com/y9858/openssl package/libs/openssl
