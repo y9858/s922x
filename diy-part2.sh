@@ -25,7 +25,7 @@ git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall package/luci-a
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
 
 # Add luci-app-openclash
-git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
+git clone -b master --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
 
 # Add luci-app-unblockneteasemusic
 git clone -b master --depth 1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
