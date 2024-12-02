@@ -41,9 +41,6 @@ find ./ | grep Makefile | grep v2dat | xargs rm -f
 git clone --depth 1 https://github.com/sbwml/luci-app-mosdns -b v5-lua package/mosdns
 git clone --depth 1 https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
-rm -rf ./feeds/luci/applications/luci-app-wrtbwmon
-git clone --depth 1 https://github.com/y9858/luci-app-wrtbwmon feeds/luci/applications/luci-app-wrtbwmon
-
 sed -i '51i HOST_CXXFLAGS += -fpermissive' feeds/packages/lang/node/Makefile
 sed -i 's/default NODEJS_18/default NODEJS_20/' feeds/packages/lang/node/Makefile
 
@@ -52,3 +49,6 @@ git clone --depth 1 https://github.com/y9858/dnsmasq package/network/services/dn
 
 rm -rf ./package/libs/openssl
 git clone --depth 1 https://github.com/y9858/openssl package/libs/openssl
+
+rm -rf ./package/lean/autocore/files/arm/sbin
+git clone --depth 1 https://github.com/y9858/sbin package/lean/autocore/files/arm/sbin
